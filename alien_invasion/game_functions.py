@@ -10,8 +10,8 @@ def check_event(screen, ship, bullets):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # 退出
             sys.exit()
-        elif event.type == pygame.KEYDOWN:  # 通过左右键改变飞船状态
-            if event.key == pygame.K_LEFT:
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:  # 通过左右键改变飞船状态
                 ship.state = "left"
             elif event.key == pygame.K_RIGHT:
                 ship.state = "right"
@@ -19,14 +19,22 @@ def check_event(screen, ship, bullets):
                 ship.state = "up"
             elif event.key == pygame.K_DOWN:
                 ship.state = "down"
-            elif event.key == pygame.K_SPACE:
-                bullet = Bullet(screen, ship)
+            elif event.key == pygame.K_SPACE:  # 空格键发射子弹
+                bullet = Bullet(screen, ship)  # 创建一颗子弹，并将其加入到编组bullets中
                 bullets.add(bullet)
 
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT \
                     or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                 ship.state = "stop"
+
+
+def update_bullet(bullets):
+    """更新子弹位置，并删除屏幕外的子弹"""
+    bullets.update()
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
 
 
 def update_screen(setting, screen, ship, bullets):

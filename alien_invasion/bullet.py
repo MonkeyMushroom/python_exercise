@@ -15,7 +15,7 @@ class Bullet(Sprite):
         self.rect.top = ship.rect.top
         self.speed = 1  # 移动速度
 
-    def update(self, *args):
+    def update(self):
         self.rect.top -= 1 * self.speed
 
     def draw_bullet(self):
