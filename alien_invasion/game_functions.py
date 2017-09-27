@@ -3,15 +3,18 @@ import pygame
 import sys
 
 from bullet import Bullet
+from alien import Alien
 
 
 def check_event(screen, ship, bullets):
     """监听键盘和鼠标事件"""
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:  # 退出
+        if event.type == pygame.QUIT:  # 点击关闭按钮退出
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:  # 通过左右键改变飞船状态
+            if event.key == pygame.K_ESCAPE:  # 点击Esc退出
+                sys.exit()
+            elif event.key == pygame.K_LEFT:  # 通过左右键改变飞船状态
                 ship.state = "left"
             elif event.key == pygame.K_RIGHT:
                 ship.state = "right"
@@ -22,7 +25,6 @@ def check_event(screen, ship, bullets):
             elif event.key == pygame.K_SPACE:  # 空格键发射子弹
                 bullet = Bullet(screen, ship)  # 创建一颗子弹，并将其加入到编组bullets中
                 bullets.add(bullet)
-
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT \
                     or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
@@ -37,10 +39,24 @@ def update_bullet(bullets):
             bullets.remove(bullet)
 
 
-def update_screen(setting, screen, ship, bullets):
+def update_screen(setting, screen, ship, bullets, aliens):
     """更新屏幕上的图像"""
     screen.fill(setting.screen_color)  # 设置背景色rgb
     ship.draw_ship()  # 绘制飞船
     for bullet in bullets.sprites():
         bullet.draw_bullet()  # 绘制子弹
+    for alien in aliens.sprites():
+        alien.draw_alien()  # 绘制外星人
     pygame.display.flip()  # 让最近绘制的屏幕可见
+
+
+def create_aliens(setting, screen, aliens):
+    """创建外星人群"""
+    alien = Alien(screen)
+    alien_width = alien.rect.width
+    space = 2 * alien_width
+    number = int((setting.screen_width - space) / alien_width)
+    for i in range(number):
+        alien = Alien(screen)
+        alien.rect.centerx = alien.screen_rect.width / number + i * alien_width
+        aliens.add(alien)
