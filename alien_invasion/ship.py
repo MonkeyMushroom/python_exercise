@@ -20,7 +20,7 @@ class Ship:
         self.state = "stop"  # 移动状态
         self.speed = 1  # 移动速度
 
-    def draw(self):
+    def draw_ship(self):
         """在指定位置绘制飞船"""
         self.screen.blit(self.image, self.rect)
 
