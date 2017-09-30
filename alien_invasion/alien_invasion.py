@@ -18,10 +18,12 @@ def run_game():
     game_functions.create_aliens(setting, screen, aliens)
 
     while True:  # 开启游戏主循环
-        game_functions.check_event(screen, ship, bullets)  # 监听键盘和鼠标事件
+        game_functions.check_event(setting, screen, ship, bullets)  # 监听键盘和鼠标事件
         ship.move()
-        game_functions.update_bullet(bullets)
+        game_functions.update_bullet(bullets, aliens)
         game_functions.update_screen(setting, screen, ship, bullets, aliens)  # 更新屏幕上的图像
+        if not aliens:  # 屏幕上没有外星人时，游戏结束
+            game_functions.game_success(setting, screen, screen.get_rect().centerx, screen.get_rect().centery)
 
 
 run_game()
