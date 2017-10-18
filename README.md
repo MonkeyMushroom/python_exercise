@@ -6,6 +6,6 @@
 
 2.data visualization
 
-![image](https://github.com/MonkeyMushroom/python_exercise/raw/master/data_visualization/line_numbers.gif)
+![image](https://github.com/MonkeyMushroom/python_exercise/raw/master/line_numbers.gif)
 
-![image](https://github.com/MonkeyMushroom/python_exercise/raw/master/data_visualization/scatter_numbers.gif)
+![image](https://github.com/MonkeyMushroom/python_exercise/raw/master/scatter_numbers.gif)
