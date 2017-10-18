@@ -12,7 +12,7 @@ def draw_line(x_values, y_values):
     pyplot.show()
 
 
-x_values = list(range(0, 1000))
+x_values = list(range(0, 20))
 y_values = [x ** 2 for x in x_values]
 
 
