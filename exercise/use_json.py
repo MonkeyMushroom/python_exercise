@@ -7,4 +7,4 @@ with open("C:\Users\Administrator\Desktop\exc1.txt", "w") as file_obj:
 
 with open("C:\Users\Administrator\Desktop\exc1.txt") as file_obj:
     number = json.load(file_obj)
-    print number
+    print(number)

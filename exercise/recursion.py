@@ -25,13 +25,13 @@ def get_power(x, n):
 def search_by_dichotomy(n, lower, upper):
     # 二分法
     medium = (lower + upper) // 2
-    print medium
+    print(medium)
     if n > medium:
         search_by_dichotomy(n, medium, upper)
     elif n < medium:
         search_by_dichotomy(n, lower, medium)
     else:
-        print "Aha, I find it"
+        print("Aha, I find it")
         return
 
 
