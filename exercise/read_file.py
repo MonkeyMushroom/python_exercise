@@ -12,5 +12,5 @@ def count_words(file_name):
         print(str(content.count("Alice")))
 
 
-file_name = "C:\Users\Administrator\Desktop\AliceInWonderland.txt"
+file_name = r"C:\Users\Administrator\Desktop\AliceInWonderland.txt"
 count_words(file_name)

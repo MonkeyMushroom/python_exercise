@@ -1,5 +1,4 @@
-1.基本数据类型
-    int整形，float浮点型，bool布尔型True,False，complex复数
+1.int整形，float浮点型，bool布尔型True,False，complex复数
     >>> type(1)
     <class 'int'>
     >>> type(0.1)
@@ -29,3 +28,110 @@
 2.进制
     十进制，二进制0b，八进制0o，十六进制0x
     进制转换 int()，bin()，oct()，hex()
+3.字符串str，单引号双引号三引号
+    >>> 'hello world'
+    'hello world'
+    >>> "hello world"
+    'hello world'
+    >>> "let's go"    成对出现
+    "let's go"
+    >>> 'let\' go'    转义字符 \n \' \t
+    "let' go"
+    >>> '''    多行字符串，可换行，也可以用三个双引号
+    hello world
+    hello world
+    '''
+    '\nhello world\nhello world'
+    >>> print('c:\not\not')
+    c:
+    ot
+    ot
+    >>> print(r'c:\not\not')    r原始字符串，后面的字符串中不转义，也可以大写R
+    c:\not\not
+    >>> 'hello '+'world'    字符串运算，+代表拼接，不能-
+    'hello world'
+    >>> 'hello'*3    *代表重复，只能*int，不能/
+    'hellohellohello'
+    >>> 'hello'*'world'
+    Traceback (most recent call last):
+      File "<pyshell#5>", line 1, in <module>
+        'hello'*'world'
+    TypeError: can't multiply sequence by non-int of type 'str'
+    >>> 'hello'[0]    根据索引查找字符
+    'h'
+    >>> 'hello'[-1]    倒数第几个字符
+    'o'
+    >>> 'hello'[0:2]    截取一段字符串，左闭右开
+    'he'
+    >>> 'hello world'[6:11]    截取到最后一位，包含最后一位，即最后一位索引10+1
+    'world'
+    >>> 'hello world'[6:200]    右区间不管写多大，都只是截取到最后一位
+    'world'
+    >>> 'hello world'[6:]    也是截取到最后一位（包含）的意思
+    'world'
+    >>> 'hello world'[:5]    相当于[0:5]
+    'hello'
+4.列表list [1,2,3,4,5,6]
+    列表中可以混合不同的数据类型 [1, 'str', True, None]
+    嵌套列表 [[1,2], [True,False], ['hello','world']]
+    >>> [1,2,3,4][0]    根据索引取值
+    1
+    >>> [1,2,3,4][0:2]    截取一段列表
+    [1, 2]
+    >>> [1,2,3,4,][-1:]    倒数截取列表，同字符串规则
+    [4]
+    >>> [1,2,3,4]+[5,6]    列表相加
+    [1, 2, 3, 4, 5, 6]
+    >>> [1,2]*2    列表重复几次
+    [1, 2, 1, 2]
+5.元组tuple (1,2,3,4)
+    >>> type((1))    编译器会把元组和数学运算符混淆
+    <class 'int'>
+    >>> type([1])    列表则不会
+    <class 'list'>
+    >>> type((1,))    所以为了区别，单个元素的元组后面添加一个逗号
+    <class 'tuple'>
+    >>> type(())    空元组
+    <class 'tuple'>
+6.序列 str、list、tuple都是序列 有序
+    ·都有索引，根据索引取值 'hello'[0] [hello,world][0] (1,2,3)[0]
+    ·运算，序列可以+、*
+    ·切片，即截取一段 'hello'[0:2] [1,2,3,4][:] (1,2,3,4)[-1:]
+    ·>>> 'hello world'[0:10:2]    在0-10左闭右开，步长为2
+     'hlowr'
+    ·>>> 3 in (1,2,3,4)    判断某一元素是否在序列中，not in 不在
+     True
+    ·>>> len([1,2,3,4])    获取序列长度
+     4
+    ·>>> max([1,2,3,4,5])    获取序列最大值，min 最小值
+     5
+7.集合set 无序，不能根据索引取值
+    >>> {1,1,2,2,3,3}    去重
+    {1, 2, 3}
+    >>> len({1,2,3})    获取长度
+    3
+    >>> 1 in {1,2,3}    是否包含
+    True
+    >>> {1,2,3}-{1}    两个集合的差集
+    {2, 3}
+    >>> {1,2,3,4}&{1,2}    两个集合的交集
+    {1, 2}
+    >>> {1,2,3,4}|{3,4,5}    并集
+    {1, 2, 3, 4, 5}
+    >>> s = set()    定义一个空集合
+    >>> type(s)
+    <class 'set'>
+    >>> len(s)
+    0
+8.字典dict key-value，不能有相同的key，value的类型可以使任何类型，如int、str、tuple、list、set、dict...
+        但是key必须是不可变类型
+    >>> d = {'Q':'粉碎打击','W':'真假猴王','E':'腾云驾雾','R':'大闹天宫'}
+    >>> type(d)
+    <class 'dict'>
+    >>> d['Q']
+    '粉碎打击'
+    >>> type({})    空字典
+    <class 'dict'>
+
+    int str tuple 值类型，不可变
+    list set dict 引用类型，可变的
