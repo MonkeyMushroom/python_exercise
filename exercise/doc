@@ -151,7 +151,11 @@
         False
         >>> [1,2,3]<[2,0,-1]    列表、元组等等都可以比较
         True
-    逻辑运算符 and or not
+    逻辑运算符 not and or
+        在不加括号时候, 优先级not>and>or；
+        x or y 的结果只可能是x或y. x为真结果就是x, x为假结果就是y；
+        x and y 的结果只可能是x或y. x为真结果就是y, x为假结果就是x；
+        0是假，非0是真；空串''是假，非空串''是真
     成员运算符 in/not in  在字典中判断的是key
     身份运算符 is/not is
         >>> a='hello'
